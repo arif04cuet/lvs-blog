@@ -1,0 +1,32 @@
+{% set post = __SELF__.post %}
+
+<div class="single_post">
+
+    <h2>{{ post.title }}</h2>
+    <div class="summary"> {{ post.summary|raw}}</div>
+
+    <br>
+    <div class="post-info">
+        Posted
+        {% if post.categories.count %} in
+        {% for category in post.categories %}
+        <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+        {% endfor %}
+        {% endif %}
+        on <span class="badge badge-secondary">{{ post.published_at|date('M d, Y') }}</span>
+    </div>
+
+
+    {% if post.featured_images.count %}
+
+    {% for image in post.featured_images %}
+    <p>
+        <img data-src="{{ image.filename }}" src="{{ image.path|resize(800) }}" alt="{{ image.description }}" style="max-width: 100%" />
+    </p>
+    {% endfor %}
+
+    {% endif %}
+
+    <div class="content">{{ post.content_html|raw }}</div>
+
+</div>

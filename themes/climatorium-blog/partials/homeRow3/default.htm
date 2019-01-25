@@ -1,0 +1,14 @@
+==
+{% set posts = __SELF__.posts %}
+
+<div class="image-below-text">
+
+    {% for post in posts %}
+
+    {% partial 'singlePost/image-text-vertical' post=post width="600" mode="crop" %}
+
+    {% endfor %}
+
+
+
+</div>

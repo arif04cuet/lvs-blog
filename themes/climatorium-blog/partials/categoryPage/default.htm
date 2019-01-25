@@ -1,0 +1,62 @@
+==
+
+
+{% if posts %}
+<div class="category category-{{category.name}}">
+
+    <ul class="list-unstyled">
+
+        {% for post in posts %}
+        <li class="mb-4">
+
+            <div class="media">
+
+                {% if post.featured_images.count %}
+                {% for image in post.featured_images|slice(0, 1) %}
+                <img class="img-fluid mr-3" data-src="{{ image.filename }}" src="{{ image.path|resize(200,150,{mode:crop}) }}"
+                    alt="{{ image.description }}">
+                {% endfor %}
+                {% endif %}
+
+                <div class="media-body">
+
+                    <h5 class="py-1"><a href="{{ post.url }}">{{ post.title[:50] ~ '...' }}</a></h5>
+                    {{ post.summary|raw }}
+                    {% partial 'singlePost/date-author' post=post %}
+                </div>
+
+            </div>
+
+        </li>
+        {% endfor%}
+
+    </ul>
+
+
+</div>
+{% else %}
+<p class="no-data">{{ noPostsMessage }}</p>
+{% endif %}
+
+
+{% if posts.lastPage > 1 %}
+<nav aria-label="Page navigation example"></nav>
+<ul class="pagination">
+    {% if posts.currentPage > 1 %}
+    <li class="page-item"><a class="page-link" href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage-1) }) }}">&larr;
+            Prev</a></li>
+    {% endif %}
+
+    {% for page in 1..posts.lastPage %}
+    <li class="{{ posts.currentPage == page ? 'active' : null }} page-item">
+        <a class="page-link" href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+    </li>
+    {% endfor %}
+
+    {% if posts.lastPage > posts.currentPage %}
+    <li class="page-item"><a class="page-link" href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage+1) }) }}">Next
+            &rarr;</a></li>
+    {% endif %}
+</ul>
+</nav>
+{% endif %}

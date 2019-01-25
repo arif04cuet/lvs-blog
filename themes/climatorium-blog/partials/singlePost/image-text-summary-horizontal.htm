@@ -1,0 +1,17 @@
+<div class="media">
+
+    {% if post.featured_images.count %}
+    {% for image in post.featured_images|slice(0, 1) %}
+    <img class="img-fluid mr-3" data-src="{{ image.filename }}" src="{{ image.path|resize(width,height,{mode:mode}) }}"
+        alt="{{ image.description }}">
+    {% endfor %}
+    {% endif %}
+
+    <div class="media-body">
+
+        <h5 class="py-1"><a href="{{ post.url }}">{{ post.title[:50] ~ '...' }}</a></h5>
+        {{ post.summary|slice(0,80)|raw }}
+        {% partial 'singlePost/date-author' post=post %}
+    </div>
+
+</div>

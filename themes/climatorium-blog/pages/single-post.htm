@@ -1,0 +1,59 @@
+title = "Single post"
+url = "/post/:slug"
+layout = "default"
+is_hidden = 0
+
+[blogPost singlePost]
+slug = "{{ :slug }}"
+categoryPage = "home"
+
+[blogPosts featuredList]
+pageNumber = "{{ :page }}"
+categoryFilter = "featured"
+postsPerPage = 5
+noPostsMessage = "No Featured  posts found"
+sortOrder = "published_at desc"
+categoryPage = "home"
+postPage = "single-post"
+
+[blogTags]
+results = 10
+direction = "desc"
+==
+<?php
+function onEnd()
+{
+    // Optional - set the page title to the category name
+    if ($this->post)
+        $this->page->title = $this->post->title;
+}
+?>
+==
+<div class="row">
+    <div class="col-md-9">{% component 'singlePost' %}</div>
+    <div class="col-md-3">
+        {% component 'featuredList' %}
+        
+        <br/>
+        <div class="tags-list">
+            
+            <h4>Tages</h4>
+            
+            
+            <ul class="list-group">
+            
+             {% for tag in blogTags.tags %}
+             
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a href="/tag/{{ tag.name}}">{{ tag.name }}</a>
+                <span class="badge badge-primary badge-pill">{{ tag.posts|length }}</span>
+              </li>
+             
+             {% endfor %}
+             
+            </ul>
+
+        </div>
+        
+    </div>
+</div>

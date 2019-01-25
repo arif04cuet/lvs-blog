@@ -1,0 +1,11 @@
+plugin:
+    name: 'laralab.blog::lang.plugin.name'
+    description: 'laralab.blog::lang.plugin.description'
+    author: Laralab
+    icon: oc-icon-adjust
+    homepage: ''
+navigation:
+    team:
+        label: 'laralab.blog::lang.team.team'
+        url: laralab/blog/team
+        icon: icon-life-ring

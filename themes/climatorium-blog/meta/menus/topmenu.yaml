@@ -1,0 +1,42 @@
+name: TopMenu
+items:
+    -
+        title: 'Contact Us'
+        nesting: '0'
+        type: static-page
+        url: ''
+        code: ''
+        reference: contact-us
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 'Category page'
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: category-page
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: 'About Us'
+        nesting: '0'
+        type: static-page
+        url: ''
+        code: ''
+        reference: about-us
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

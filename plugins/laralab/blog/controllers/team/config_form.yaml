@@ -1,0 +1,10 @@
+name: Team
+form: $/laralab/blog/models/team/fields.yaml
+modelClass: Laralab\Blog\Models\Team
+defaultRedirect: laralab/blog/team
+create:
+    redirect: 'laralab/blog/team/update/:id'
+    redirectClose: laralab/blog/team
+update:
+    redirect: laralab/blog/team
+    redirectClose: laralab/blog/team

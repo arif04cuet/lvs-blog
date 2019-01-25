@@ -1,0 +1,7 @@
+<h4>Posts with tag "{{ __SELF__.tag.name }}"</h4>
+<hr>
+{% if __SELF__.posts %}
+
+{% partial 'categoryPage/default' posts=__SELF__.tag.posts %}
+
+{% endif %}

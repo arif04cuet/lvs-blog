@@ -1,0 +1,41 @@
+==
+{% if posts %}
+
+<div class="ask_an_expert">
+    <div class="row">
+        <div class="col">
+
+            <h3>Ask an Expert </h3>
+
+        </div>
+    </div>
+
+    <div class="row">
+
+
+        {% for post in posts %}
+        <div class="media col-md-6 mb-3">
+
+            {% if post.featured_images.count %}
+            {% for image in post.featured_images|slice(0, 1) %}
+            <img class="img-fluid mr-3" data-src="{{ image.filename }}" src="{{ image.path|resize(200,150,{mode:'crop'}) }}"
+                alt="{{ image.description }}">
+            {% endfor %}
+            {% endif %}
+
+            <div class="media-body">
+                {% partial 'singlePost/date-author' post=post %}
+                <h5 class="py-1"><a href="{{ post.url }}">{{ post.title[:50] ~ '...' }}</a></h5>
+                {{ post.summary|slice(0,80)|raw }}
+            </div>
+
+        </div>
+        {% endfor%}
+
+
+    </div>
+    {% else %}
+    <p class="no-data">{{ noPostsMessage }}</p>
+    {% endif %}
+
+</div>

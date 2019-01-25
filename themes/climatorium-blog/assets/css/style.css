@@ -1,0 +1,65 @@
+.box-overlay{
+    position:relative;
+  }
+  
+  .box-overlay .img-title{
+    position: absolute;
+    color: #fff;
+    text-align: center;
+    left: 0;
+    right: 0;
+    top: 40%;
+    letter-spacing: 3px;
+  }
+
+  .badge-secondary{background-color: lightgray}
+
+  .homeRow2 .card-img-top{
+    min-height: 150px;
+    max-height: 150px;
+  }
+
+  .video-wrapper {
+    position: relative;
+    padding-top: 25px;
+    margin-bottom: 15px;
+    height: 0;
+}
+
+.video-wrapper.ratio-5-4 {padding-bottom: 80%;}
+.video-wrapper.ratio-4-3 {padding-bottom: 70%;}
+.video-wrapper.ratio-16-10 {padding-bottom: 62.5%;}
+.video-wrapper.ratio-16-9 {padding-bottom: 56.25%;}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%!important;
+    height: 100%!important;
+}
+
+
+.videos .card{
+  max-width: 18rem;
+}
+
+
+
+.carousel-inner .carousel-item-right.active,
+.carousel-inner .carousel-item-next {
+  transform: translateX(33.33%);
+}
+
+.carousel-inner .carousel-item-left.active, 
+.carousel-inner .carousel-item-prev {
+  transform: translateX(-33.33%)
+}
+  
+.carousel-inner .carousel-item-right,
+.carousel-inner .carousel-item-left{ 
+  transform: translateX(0);
+}
+
+
+

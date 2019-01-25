@@ -1,0 +1,20 @@
+title = "Single Post"
+url = "/post/:slug"
+layout = "default"
+meta_title = "this is test seo title"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = 404
+
+[SeoBlogPost]
+post = "post"
+==
+<div class="container">
+
+    {% component 'blogPost' %}
+    {% component 'SeoBlogPost' data=post %}
+</div>

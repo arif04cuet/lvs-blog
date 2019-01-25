@@ -1,0 +1,58 @@
+title = "Search Result"
+url = "/search"
+layout = "default"
+is_hidden = 0
+
+[searchResults]
+resultsPerPage = 10
+showProviderBadge = 1
+noResultsMessage = "Your search returned no results."
+visitPageMessage = "Visit page"
+
+[blogPosts featuredList]
+pageNumber = "{{ :page }}"
+categoryFilter = "featured"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "category-page"
+postPage = "single-post"
+
+[blogTags]
+results = 5
+direction = "desc"
+==
+<div class="row">
+    <div class="col-md-9">
+        
+        <h3>Search results for "{{ searchResults.query }} "</h3>
+        {% component 'searchResults' %}
+        
+        </div>
+    <div class="col-md-3">
+        {% component 'featuredList' %}
+        
+        
+       <div class="tags-list">
+            
+            <h4>Tages</h4>
+            
+            
+            <ul class="list-group">
+            
+             {% for tag in blogTags.tags %}
+             
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a href="/tag/{{ tag.name}}">{{ tag.name }}</a>
+                <span class="badge badge-primary badge-pill">{{ tag.posts|length }}</span>
+              </li>
+             
+             {% endfor %}
+             
+            </ul>
+
+        </div>
+            
+            
+    </div>
+</div>

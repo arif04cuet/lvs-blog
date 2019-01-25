@@ -1,0 +1,56 @@
+title = "Tags List Page"
+url = "/tag/:tag/:page?"
+layout = "default"
+is_hidden = 0
+
+[blogTagSearch tagListPage]
+tag = "{{ :tag }}"
+pagination = 1
+page = "{{ :page }}"
+resultsPerPage = 10
+postPage = "single-post"
+categoryPage = "category-page"
+
+[blogPosts featuredList]
+pageNumber = "{{ :page }}"
+categoryFilter = "featured"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "category-page"
+postPage = "single-post"
+
+[blogTags]
+results = 5
+orderBy = "name"
+direction = "desc"
+==
+<div class="row">
+    <div class="col-md-9">{% component 'tagListPage' %}</div>
+    <div class="col-md-3">
+        {% component 'featuredList' %}
+        
+        
+       <div class="tags-list">
+            
+            <h4>Tages</h4>
+            
+            
+            <ul class="list-group">
+            
+             {% for tag in blogTags.tags %}
+             
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a href="/tag/{{ tag.name}}">{{ tag.name }}</a>
+                <span class="badge badge-primary badge-pill">{{ tag.posts|length }}</span>
+              </li>
+             
+             {% endfor %}
+             
+            </ul>
+
+        </div>
+            
+            
+    </div>
+</div>

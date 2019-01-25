@@ -1,0 +1,45 @@
+title = "Home"
+url = "/"
+layout = "default"
+is_hidden = 0
+
+[blogPosts component1]
+pageNumber = "{{ :page }}"
+categoryFilter = "home-section-1"
+postsPerPage = 1
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "home"
+postPage = "single-post"
+
+[blogPosts featuredList]
+pageNumber = "{{ :page }}"
+categoryFilter = "featured"
+postsPerPage = 5
+noPostsMessage = "No featured posts found"
+sortOrder = "published_at desc"
+categoryPage = "home"
+postPage = "single-post"
+==
+{% partial 'home/row-1' %}
+<br>
+{% partial 'home/row-2' %}
+
+<br>
+{% partial 'home/row-3' %}
+
+<br>
+{% partial 'home/row-4' %}
+
+<br>
+{% partial 'home/row-5' %}
+
+<br>
+{% partial 'home/row-6' %}
+
+
+<br>
+{% partial 'home/row-7' %}
+
+<br>
+{% partial 'home/row-8' %}

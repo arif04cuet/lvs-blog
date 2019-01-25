@@ -1,0 +1,28 @@
+fields:
+    name:
+        label: laralab.blog::lang.team.name
+        span: left
+        required: 1
+        type: text
+    designation:
+        label: laralab.blog::lang.team.designation
+        span: right
+        required: 1
+        type: text
+    short_description:
+        label: laralab.blog::lang.team.short_description
+        size: small
+        span: left
+        required: 1
+        type: richeditor
+    photo:
+        label: laralab.blog::lang.team.photo
+        mode: image
+        imageWidth: '200'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: right
+        required: 1
+        type: fileupload

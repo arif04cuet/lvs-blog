@@ -1,0 +1,17 @@
+==
+<div class="card border-0" style="">
+
+    {% if post.featured_images.count %}
+    {% for image in post.featured_images|slice(0, 1) %}
+    <img class="img-fluid card-img-top" data-src="{{ image.filename }}" src="{{ image.path|resize(width,height,{mode:mode}) }}"
+        alt="{{ image.description }}">
+    {% endfor %}
+    {% endif %}
+
+    {% partial 'singlePost/date-author' post=post %}
+
+    <div class="card-body px-0">
+        <h5 class="card-title"><a href="{{ post.url }}">{{ post.title|slice(0, 120) ~'...' }}</a></h5>
+        <p class="card-text">{{ post.summary|slice(0,150)|raw }}</p>
+    </div>
+</div>

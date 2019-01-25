@@ -1,0 +1,23 @@
+[blogPosts homeRow2]
+pageNumber = "{{ :page }}"
+categoryFilter = "featured"
+postsPerPage = 4
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "home"
+postPage = "home"
+==
+{% set posts = __SELF__.posts %}
+
+
+
+<div class="row category">
+    <div class="col">
+        <h4>{{ category.name }}</h4>
+        <p>{{ category.description }}</p>
+    </div>
+</div>
+
+<div class="homeRow2">
+    {% component 'homeRow2' %}
+</div>

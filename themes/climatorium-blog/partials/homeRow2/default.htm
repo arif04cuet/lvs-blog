@@ -1,0 +1,14 @@
+==
+
+
+
+{% if posts %}
+<div class="card-deck">
+
+    {% for post in posts %}
+    {% partial 'singlePost/image-text-vertical' post=post width="200" height="150" mode="crop" %}
+    {% endfor %}
+
+</div>
+
+{% endif %}

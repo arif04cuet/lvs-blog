@@ -1,0 +1,26 @@
+[blogPosts homeRow3]
+pageNumber = "{{ :page }}"
+categoryFilter = "featured"
+postsPerPage = 1
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "home"
+postPage = "home"
+
+[blogPosts popularPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "featured"
+postsPerPage = 5
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "home"
+postPage = "single-post"
+==
+<div class="row">
+    <div class="col-md-6">
+        {% component 'homeRow3' %}
+    </div>
+    <div class="col-md-6">
+    {% component 'popularPosts' %}
+    </div>
+</div>

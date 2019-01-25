@@ -1,0 +1,15 @@
+columns:
+    name:
+        label: laralab.blog::lang.team.name
+        type: text
+        searchable: true
+        sortable: true
+    designation:
+        label: laralab.blog::lang.team.designation
+        type: text
+        searchable: true
+        sortable: true
+    photo:
+        label: laralab.blog::lang.team.photo
+        type: partial
+        path: $/laralab/blog/models/team/partials/_photo_column.htm

@@ -1,0 +1,59 @@
+{% set members = __SELF__.records %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-10">
+            <h4>Meet the Team</h4>
+        </div>
+        <div class="col-2 text-md-right pr-0">
+            <a class="btn btn-outline-secondary prev" href="" title="go back"><i class="fa fa-lg fa-chevron-left"></i></a>
+            <a class="btn btn-outline-secondary next" href="" title="more"><i class="fa fa-lg fa-chevron-right"></i></a>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div class="row">
+    <div class="col">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+
+                {% for member in members %}
+
+
+                {% if loop.first or loop.index % 5 == 0 %}
+                <div class="carousel-item {{ loop.index == 1 ? 'active' }}">
+                    <div class="card-deck">
+
+                        {% endif %}
+
+                        <div class="card col-md-3">
+                            <div class="px-4 pt-2">
+                                <img class="card-img-top rounded-circle" src="{{member.photo.path|resize('150')}}" alt="Card image cap">
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">{{ member.name}}</h5>
+                                <p><span class="badge badge-secondary">{{ member.designation}}</span></p>
+                                {{member.short_description|raw}}
+                            </div>
+                        </div>
+
+
+                        {% if loop.last or loop.index % 4 == 0 %}
+                    </div>
+
+                </div>
+                {% endif %}
+
+                {% endfor %}
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

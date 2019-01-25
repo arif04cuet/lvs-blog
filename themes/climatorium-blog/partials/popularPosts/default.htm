@@ -1,0 +1,23 @@
+==
+{% set posts = __SELF__.posts %}
+
+{% if posts %}
+<div class="popular-post">
+
+    <ul class="list-unstyled">
+
+        {% for post in posts %}
+        <li class="mb-4">
+
+            {% partial 'singlePost/image-text-summary-horizontal' post=post width="200" height="150" mode="crop" %}
+
+        </li>
+        {% endfor%}
+
+    </ul>
+
+
+</div>
+{% else %}
+<p class="no-data">{{ noPostsMessage }}</p>
+{% endif %}

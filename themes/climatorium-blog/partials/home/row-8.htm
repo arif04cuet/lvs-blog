@@ -1,0 +1,13 @@
+[builderList team]
+modelClass = "Laralab\Blog\Models\Team"
+scope = "scopeActive"
+scopeValue = "{{ :scope }}"
+displayColumn = "name"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+==
+<div class="team">
+    {% component 'team' %}
+</div>
